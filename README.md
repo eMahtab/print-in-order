@@ -1,4 +1,5 @@
 # Print in order
+## https://leetcode.com/problems/print-in-order
 
 Suppose we have a class:
 ```java
@@ -28,4 +29,38 @@ Input: nums = [1,3,2]
 Output: "firstsecondthird"
 Explanation: The input [1,3,2] means thread A calls first(), thread B calls third(),
 and thread C calls second(). "firstsecondthird" is the correct output.
+```
+
+# Implementation : Using Semaphore
+```java
+class Foo {
+    Semaphore first = new Semaphore(1);
+    Semaphore second = new Semaphore(0);
+    Semaphore third = new Semaphore(0);
+
+    public Foo() {
+        
+    }
+
+    public void first(Runnable printFirst) throws InterruptedException {
+        first.acquire();
+        // printFirst.run() outputs "first". Do not change or remove this line.
+        printFirst.run();
+        second.release();
+    }
+
+    public void second(Runnable printSecond) throws InterruptedException {
+        second.acquire();
+        // printSecond.run() outputs "second". Do not change or remove this line.
+        printSecond.run();
+        third.release();
+    }
+
+    public void third(Runnable printThird) throws InterruptedException {
+        third.acquire();
+        // printThird.run() outputs "third". Do not change or remove this line.
+        printThird.run();
+        third.release();
+    }
+}
 ```
