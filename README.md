@@ -1,7 +1,7 @@
 # Print in order
 
 Suppose we have a class:
-```
+```java
 public class Foo {
   public void first() { print("first"); }
   public void second() { print("second"); }
@@ -19,11 +19,13 @@ Example 1:
 
 Input: nums = [1,2,3]
 Output: "firstsecondthird"
-Explanation: There are three threads being fired asynchronously. The input [1,2,3] means thread A calls first(), thread B calls second(), and thread C calls third(). "firstsecondthird" is the correct output.
+Explanation: There are three threads being fired asynchronously. The input [1,2,3] means thread A calls first(),
+thread B calls second(), and thread C calls third(). "firstsecondthird" is the correct output.
 
 Example 2:
 
 Input: nums = [1,3,2]
 Output: "firstsecondthird"
-Explanation: The input [1,3,2] means thread A calls first(), thread B calls third(), and thread C calls second(). "firstsecondthird" is the correct output.
+Explanation: The input [1,3,2] means thread A calls first(), thread B calls third(),
+and thread C calls second(). "firstsecondthird" is the correct output.
 ```
