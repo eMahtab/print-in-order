@@ -64,3 +64,6 @@ class Foo {
     }
 }
 ```
+
+# References :
+https://jenkov.com/tutorials/java-util-concurrent/semaphore.html
